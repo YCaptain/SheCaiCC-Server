@@ -8,6 +8,7 @@ public class DaoFactory {
 	 * Singleton
 	 */
 	private static MemberDao memberDao = null;
+	private static ClubDao clubDao = null;
 	private static DaoFactory instance = new DaoFactory();
 
 	private DaoFactory() {
@@ -18,9 +19,15 @@ public class DaoFactory {
 		try {
 			FileInputStream fis = new FileInputStream("src/com/cc/domain/daoconfig.properties");
 			prop.load(fis);
+
 			String className = prop.getProperty("memberDaoClass");
 			Class<?> clazz = Class.forName(className);
 			memberDao = (MemberDao) clazz.newInstance();
+
+			className = prop.getProperty("clubDaoClass");
+			clazz = Class.forName(className);
+			clubDao = (ClubDao) clazz.newInstance();
+
 			fis.close();
 		} catch (Throwable e) {
 			throw new ExceptionInInitializerError(e);
@@ -33,6 +40,10 @@ public class DaoFactory {
 
 	public MemberDao createMemberDao() {
 		return memberDao;
+	}
+
+	public ClubDao createClubDao() {
+		return clubDao;
 	}
 
 }

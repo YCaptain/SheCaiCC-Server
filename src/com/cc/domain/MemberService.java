@@ -10,11 +10,6 @@ public class MemberService {
 		System.out.println("Create member instance");
 	}
 
-	/**
-	 * register member
-	 *
-	 * @param member
-	 */
 	public void regist(Member member) {
 		if (member == null)
 			System.out.println("Invalid registration information!!");
@@ -22,11 +17,6 @@ public class MemberService {
 			memberDao.addMember(member);
 	}
 
-	/**
-	 * query member
-	 *
-	 * @param member
-	 */
 	public Member query(int memberId) {
 		Member member = memberDao.getMemberById(memberId);
 		if (member == null)
@@ -36,11 +26,6 @@ public class MemberService {
 		return memberDao.getMemberById(memberId);
 	}
 
-	/**
-	 * update member
-	 *
-	 * @param member
-	 */
 	public void update(Member member) {
 		if (member.getId() <= 0)
 			System.out.println("Member id is invalid and cannot be updated");
@@ -48,10 +33,6 @@ public class MemberService {
 			memberDao.update(member);
 	}
 
-	/**
-	 * delete member
-	 * @param member
-	 */
 	public void delete(Member member) {
 		if (member.getId() <= 0)
 			System.out.println("Member id is invalid and cannot be deleted");

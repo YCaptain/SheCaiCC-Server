@@ -8,6 +8,7 @@ public class InitUtils {
 	public static void main(String[] args) {
 		createDatabase();
 		createTables();
+		//dropDatabase();
 	}
 
 	public static void createDatabase() {

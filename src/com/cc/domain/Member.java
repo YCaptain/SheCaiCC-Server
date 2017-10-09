@@ -8,20 +8,20 @@ public class Member {
 	private int studentNum;
 	private String name;
 	private String college;
-	private Date dateOfBirth;
+	private Date birthday;
 	private String gender;
 	private int phone;
 	private String intro;
 
 	public Member() {}
 
-	public Member(int id, int studentNum, String name, String college, Date dateOfBirth,
+	public Member(int id, int studentNum, String name, String college, Date birthday,
 			String gender, int phone, String intro) {
 		this.id = id;
 		this.studentNum = studentNum;
 		this.name = name;
 		this.college = college;
-		this.dateOfBirth = dateOfBirth;
+		this.birthday = birthday;
 		this.gender = gender;
 		this.phone = phone;
 		this.intro = intro;
@@ -59,12 +59,12 @@ public class Member {
 		this.college = college;
 	}
 
-	public Date getDateOfBirth() {
-		return dateOfBirth;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public String getGender() {
@@ -94,7 +94,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "[id: " + id + ", student number: " + studentNum + ", name: "
-				+ name + ", college: " + college + ", dateOfBirth: " + dateOfBirth +
+				+ name + ", college: " + college + ", birthday: " + birthday +
 				", gender: " + gender + ", phone: " + phone + ", intro: " + intro + "]";
 	}
 }

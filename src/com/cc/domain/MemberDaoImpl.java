@@ -9,23 +9,20 @@ import com.cc.utils.JdbcUtils;
 
 public class MemberDaoImpl implements MemberDao {
 
-	/**
-	 * add member
-	 */
 	@Override
 	public void addMember(Member member) {
 		Connection con = null;
 		PreparedStatement ps = null;
 		try {
 			con = JdbcUtils.getConnection();
-			String sql = "INSERT INTO member(id, studentNum, name, college, dateOfBirth,"
+			String sql = "INSERT INTO member(id, studentNum, name, college, birthday,"
 					+ "gender, phone, intro)" + " VALUES(?,?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, member.getId());
 			ps.setInt(2, member.getStudentNum());
 			ps.setString(3, member.getName());
 			ps.setString(4, member.getCollege());
-			ps.setDate(5, new Date(member.getDateOfBirth().getTime()));
+			ps.setDate(5, new Date(member.getBirthday().getTime()));
 			ps.setString(6, member.getGender());
 			ps.setInt(7, member.getPhone());
 			ps.setString(8, member.getIntro());
@@ -38,9 +35,6 @@ public class MemberDaoImpl implements MemberDao {
 		}
 	}
 
-	/**
-	 * get member by id
-	 */
 	@Override
 	public Member getMemberById(int id) {
 		Connection con = null;
@@ -58,7 +52,7 @@ public class MemberDaoImpl implements MemberDao {
 				member.setStudentNum(rs.getInt("studentNum"));
 				member.setName(rs.getString("name"));
 				member.setCollege(rs.getString("college"));
-				member.setDateOfBirth(rs.getDate("dateOfBirth"));
+				member.setBirthday(rs.getDate("birthday"));
 				member.setGender(rs.getString("gender"));
 				member.setPhone(rs.getInt("phone"));
 				member.setIntro(rs.getString("intro"));
@@ -72,9 +66,6 @@ public class MemberDaoImpl implements MemberDao {
 		return null;
 	}
 
-	/**
-	 * update member
-	 */
 	@Override
 	public int update(Member member) {
 		Connection con = null;
@@ -82,12 +73,12 @@ public class MemberDaoImpl implements MemberDao {
 		try {
 			con = JdbcUtils.getConnection();
 			String sql = "UPDATE member SET studentNum = ?, name = ?, college = ?,"
-					+ "dateOfBirth = ?, gender = ?, phone = ?, intro = ? WHERE id = ?";
+					+ "birthday = ?, gender = ?, phone = ?, intro = ? WHERE id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, member.getStudentNum());
 			ps.setString(2, member.getName());
 			ps.setString(3, member.getCollege());
-			ps.setDate(4, new Date(member.getDateOfBirth().getTime()));
+			ps.setDate(4, new Date(member.getBirthday().getTime()));
 			ps.setString(5, member.getGender());
 			ps.setInt(6, member.getPhone());
 			ps.setString(7, member.getIntro());
@@ -102,9 +93,6 @@ public class MemberDaoImpl implements MemberDao {
 		}
 	}
 
-	/**
-	 * delete member
-	 */
 	@Override
 	public int delete(Member member) {
 		Connection con = null;

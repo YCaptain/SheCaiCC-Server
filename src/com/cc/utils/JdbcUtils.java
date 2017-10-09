@@ -8,13 +8,14 @@ import java.sql.Statement;
 
 public class JdbcUtils {
 
-	public static String DBNAME = "CC";
+	public static String DBNAME = "SheCaiCC";
 	private static String DBUSER = "root";
-	private static String DBPASS = "";
+	private static String DBPASS = "shecai1537";
+	private static String EXTERNALURL = "111.231.69.225:3306";
 
 	private static String DBDRIVER = "com.mysql.jdbc.Driver";
-	private static String DBBASICURL = "jdbc:mysql://localhost:3306??characterEncoding=gbk&useSSL=true";
-	private static final String DBURL = "jdbc:mysql://localhost:3306/" + DBNAME + "?characterEncoding=gbk&useSSL=true";
+	private static String DBBASICURL = "jdbc:mysql://" + EXTERNALURL + "??characterEncoding=gbk&useSSL=true";
+	private static final String DBURL = "jdbc:mysql://" + EXTERNALURL + "/" + DBNAME + "?characterEncoding=gbk&useSSL=true";
 
 	static {
 		try {
